@@ -1,0 +1,34 @@
+Prereq
+
+1 ansible server centos7
+3 servers for cluster
+
+passwordless ssh between ansible and other servers.
+
+Steps on cluster server required.
+
+yum install epel-release
+yum install python-pip
+pip install pyhcl
+pip install python-consul
+
+
+on ansible server files are as below.
+
+[root@ansible ~]# ls -lhrt
+total 36K
+-rw-r--r--. 1 root root  263 Apr 25 08:14 conf_file.yml
+-rw-r--r--. 1 root root  261 Apr 25 09:20 bashfile.yml
+-rw-r--r--. 1 root root  733 Apr 25 10:09 config.json
+-rw-r--r--. 1 root root  140 Apr 25 10:28 main.yml
+-rw-r--r--. 1 root root  431 Apr 25 10:43 package.yml
+-rw-r--r--. 1 root root  219 Apr 25 11:01 consul.service
+-rw-r--r--. 1 root root  151 Apr 25 11:16 master-token.json
+-rw-r--r--. 1 root root  633 Apr 25 12:17 configure_consul.yml
+
+
+config.json is the file which contains cluster information
+bashfile is to setup the hostip parameter so that we can use it to replace machines current ip.
+package.yml is for packages
+configure_consul.yml it contains configuration steps.
+conf_file.yml this is to create config and data dir
